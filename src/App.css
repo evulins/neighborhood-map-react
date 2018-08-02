@@ -1,17 +1,24 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
+  display: flex;
+  width: 100%;
+  flex-flow: row wrap;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
 
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 20px;
+  width: 100%;
+  height: 4rem;
+  padding: 1rem;
   color: white;
+  order: 1;
 }
 
 .App-title {
@@ -22,7 +29,19 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.location-menu {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  order: 2;
+  width: 20%;
+  height: 100%;
+  background-color: #222;
 }
+
+.map {
+  order: 2;
+  width: 80%;
+}
+
+
