@@ -22,7 +22,7 @@ html, body {
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 .location-menu {
@@ -32,8 +32,17 @@ html, body {
   order: 2;
   width: 20%;
   height: 100%;
-  background-color: #222;
+  background-color: black;
   color: white;
+}
+
+.location-list {
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+.location-name {
+  padding: 1rem;
 }
 
 .map {

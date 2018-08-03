@@ -1,14 +1,27 @@
 import React, { Component } from 'react'
-import { GoogleMap, Marker, withGoogleMap, withScriptjs } from "react-google-maps"
+import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps'
+import MyMarker from './MyMarker'
 
-export class Map extends Component {
+
+class Map extends Component {
   render() {
     return (
       <GoogleMap
-        defaultZoom={15}
-        defaultCenter={{ lat: 50.0536381, lng: 19.9601958 }}
+        defaultZoom={14}
+        defaultCenter={{ lat: 50.0506762, lng: 19.9474994 }}
       >
-        <Marker position={{ lat: 50.0536381, lng: 19.9601958 }} />
+
+        {
+          this.props.markers.map(
+            marker => (
+              <MyMarker
+              key={marker.title}
+              marker={marker}
+              />
+            )
+          )
+        }
+
       </GoogleMap>
     );
   }
