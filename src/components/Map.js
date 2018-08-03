@@ -1,45 +1,17 @@
-export class Map extends React.Component {
+import React, { Component } from 'react'
+import { GoogleMap, Marker, withGoogleMap, withScriptjs } from "react-google-maps"
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.google !== this.props.google) {
-      this.loadMap();
-    }
-  }
-
-  loadMap() {
-    if (this.props && this.props.google) {
-      // google is available
-      const {google} = this.props;
-      const maps = google.maps;
-
-      const mapRef = this.refs.map;
-      const node = ReactDOM.findDOMNode(mapRef);let zoom = 14;
-      let lat = 37.774929;
-      let lng = -122.419416;
-      const center = new maps.LatLng(lat, lng);
-      const mapConfig = Object.assign({}, {
-        center: center,
-        zoom: zoom
-      })
-      this.map = new maps.Map(node, mapConfig);
-    }
-
-      
-    }
-
-    // ...
-  }
-
-  render() {
-    // ...
-  }
-}
-
+export class Map extends Component {
   render() {
     return (
-      <div ref='map'>
-        Loading map...
-      </div>
-    )
+      <GoogleMap
+        defaultZoom={15}
+        defaultCenter={{ lat: 50.0536381, lng: 19.9601958 }}
+      >
+        <Marker position={{ lat: 50.0536381, lng: 19.9601958 }} />
+      </GoogleMap>
+    );
   }
 }
+ 
+export default withScriptjs(withGoogleMap(Map))
