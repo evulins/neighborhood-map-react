@@ -3,22 +3,63 @@ import Map from './components/Map'
 import MyMarker from './components/MyMarker'
 import { markerList } from './components/markerList'
 import './App.css'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { 
+  faBars,
+  faFilter } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+library.add(
+  faBars,
+  faFilter
+)
+
 
 class App extends Component {
   state = {
-    markers: markerList
+    markers: markerList,
+    value: ''
   }
-  
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+
   render() {
     return (
       <div className="app">
 
         <header className="App-header">
+          <div className="hamburger">
+          <FontAwesomeIcon icon="bars" />
+          </div>
           <div className="App-title">
           Moja mapa
           </div>
         </header>
         <div className="location-menu">
+          <div className="menu-title">
+            Ewu Location
+          </div>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              <input 
+                className="location-filter"
+                type="text"
+                placeholder="Interesting location"
+                value={this.state.value}
+                onChange={this.handleChange} />
+              <button className="filter-button" type='submit' value="Submit">
+                <FontAwesomeIcon icon="filter" />Filter
+              </button>
+            </label>
+          </form>
           <ul className="location-list">
             {
               this.state.markers.map(
