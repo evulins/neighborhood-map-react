@@ -1,26 +1,57 @@
 import React, { Component } from 'react'
-import { Marker, InfoWindow } from "react-google-maps"
+import { Marker, InfoWindow } from 'react-google-maps'
+import { fetchRecommendedLocations } from '../forsquareAPI'
 
 
 class MyMarker extends Component {
   state = {
-    isOpen: false
+    isOpen: false,
+    recommendations: []
   }
 
   handelMarkerClick = () => {
     this.setState({isOpen: !this.state.isOpen})
   }
 
+  componentDidUpdate() {
+    const { isOpen, recommendations } = this.state
+    if (isOpen && recommendations.length === 0) {
+      const markerLocation = this.props.marker.location
+      fetchRecommendedLocations(
+        markerLocation.lat,
+        markerLocation.lng,
+        (recommendations) => this.setState({ recommendations })
+      )
+    }
+  }
+
   render() {
-    const isOpen = this.state.isOpen;
+    const { isOpen, recommendations } = this.state
+    const marker = this.props.marker
     return (
       <Marker
-        position={this.props.marker.location}
+        position={marker.location}
         onClick={this.handelMarkerClick}
       > 
-        {isOpen ? (
+        {isOpen && recommendations.length > 0 ? (
               <InfoWindow>
-                <div>{this.props.marker.title}</div>
+                <div>
+                  <p>{marker.title}</p>
+                  <ul>
+                    {
+                      recommendations.filter(
+                        location => {
+                          return location.venue.name !== marker.title
+                        }
+                      ).map(
+                        location => (
+                          <li>{location.venue.name}</li>
+                        )
+                      )
+                    }
+                  </ul>
+
+                </div>
               </InfoWindow>
         ) : null
         }

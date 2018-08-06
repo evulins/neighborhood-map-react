@@ -1,37 +1,49 @@
 import React, { Component } from 'react'
 import Map from './components/Map'
-import MyMarker from './components/MyMarker'
 import { markerList } from './components/markerList'
+import escapeRegExp from 'escape-string-regexp'
 import './App.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { 
-  faBars,
-  faFilter } from '@fortawesome/free-solid-svg-icons'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 library.add(
-  faBars,
-  faFilter
+  faBars
 )
 
 
 class App extends Component {
   state = {
     markers: markerList,
-    value: ''
+    query: '',
+    selectedMarker: ''
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  updateQuery = (query) => {
+    this.setState({ query: query.trim() })
   }
 
-  handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
-    event.preventDefault();
+  clearQuery = () => {
+    this.setState({ query: ''})
   }
 
+  selectMarker = locationName => {
+    return () =>
+      this.setState({ selectedMarker: locationName })
+  }
 
   render() {
+
+    const { query } = this.state
+    let showingLocations
+    const markers = this.state.markers
+    if (query) {
+      const match = new RegExp(escapeRegExp(query), 'i')
+      showingLocations = markers.filter((marker) => match.test(marker.title))
+    } else {
+        showingLocations = markers
+      }
+
     return (
       <div className="app">
 
@@ -47,24 +59,18 @@ class App extends Component {
           <div className="menu-title">
             Ewu Location
           </div>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              <input 
-                className="location-filter"
-                type="text"
-                placeholder="Interesting location"
-                value={this.state.value}
-                onChange={this.handleChange} />
-              <button className="filter-button" type='submit' value="Submit">
-                <FontAwesomeIcon icon="filter" />Filter
-              </button>
-            </label>
-          </form>
+          <input 
+            className="location-filter"
+            type="text"
+            placeholder="Interesting location"
+            value={query}
+            onChange={(event) => this.updateQuery(event.target.value)}
+          />
           <ul className="location-list">
             {
-              this.state.markers.map(
+              showingLocations.map(
                 marker => (
-                  <li className="location-name" key={marker.title}>
+                  <li className="location-name" key={marker.title} onClick={this.selectMarker(marker.title)}>
                     <div>
                       {marker.title}
                     </div>
@@ -79,7 +85,7 @@ class App extends Component {
           loadingElement={<div style={{ height: `100%` }} />}
           containerElement={<div className="map" />}
           mapElement={<div style={{ height: `100%` }} />}
-          markers={this.state.markers}
+          markers={showingLocations}
         />
       </div>
     )

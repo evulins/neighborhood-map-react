@@ -49,7 +49,7 @@ export const markerList = [
       lat: 50.0521691,
       lng: 19.9263073
     },
-    title: 'Zaczyn',
+    title: 'Piekarnia Zaczyn',
     address: 'Barska 4, 30-307 Kraków, Polska'
   }
 ]

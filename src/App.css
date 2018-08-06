@@ -53,15 +53,15 @@ html, body {
 }
 
 .location-filter {
-  width: 67%;
+  width: 90%;
   min-height: 48px;
   padding: 0;
-  border-top-left-radius: 7px;
-  border-bottom-left-radius: 7px;
+  border-radius: 7px;
   text-align: center;
+  margin: 0.5rem;
 }
 
-.filter-button {
+/*.filter-button {
   width: 30%;
   cursor: pointer;
   text-align: center;
@@ -81,7 +81,7 @@ html, body {
 .filter-button:active {
   background-color: #3e8e41;
   transform: translateY(4px);
-}
+}*/
 
 .location-list {
   list-style: none;
