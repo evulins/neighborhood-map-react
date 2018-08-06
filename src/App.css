@@ -61,27 +61,6 @@ html, body {
   margin: 0.5rem;
 }
 
-/*.filter-button {
-  width: 30%;
-  cursor: pointer;
-  text-align: center;
-  color: #fff;
-  background-color: #4CAF50;
-  border: none;
-  border-top-right-radius: 7px;
-  border-bottom-right-radius: 7px;
-  padding-top: 1.2rem;
-  padding-bottom: 1.2rem;
-}
-
-.filter-button:hover {
-  background-color: #3e8e41
-}
-
-.filter-button:active {
-  background-color: #3e8e41;
-  transform: translateY(4px);
-}*/
 
 .location-list {
   list-style: none;
@@ -91,6 +70,11 @@ html, body {
 
 .location-name {
   padding: 1rem;
+}
+
+.location-name.active {
+  background-color: #3e8e41;
+  transform: translateY(4px);
 }
 
 .map {

@@ -6,6 +6,7 @@ import './App.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import LocationName from './components/LocationName'
 
 library.add(
   faBars
@@ -70,11 +71,12 @@ class App extends Component {
             {
               showingLocations.map(
                 marker => (
-                  <li className="location-name" key={marker.title} onClick={this.selectMarker(marker.title)}>
-                    <div>
-                      {marker.title}
-                    </div>
-                  </li>
+                  <LocationName
+                    key={marker.title}
+                    onClick={this.selectMarker(marker.title)}
+                    markerTitle={marker.title}
+                    isClicked={marker.title === this.state.selectedMarker} 
+                  />
                 )
               )
             }
@@ -86,6 +88,8 @@ class App extends Component {
           containerElement={<div className="map" />}
           mapElement={<div style={{ height: `100%` }} />}
           markers={showingLocations}
+          selectedMarker={this.state.selectedMarker}
+          onMarkerClick={this.selectMarker}
         />
       </div>
     )

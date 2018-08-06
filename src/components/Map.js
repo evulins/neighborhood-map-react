@@ -10,13 +10,14 @@ class Map extends Component {
         defaultZoom={14}
         defaultCenter={{ lat: 50.0506762, lng: 19.9474994 }}
       >
-
         {
           this.props.markers.map(
             marker => (
               <MyMarker
-              key={marker.title}
-              marker={marker}
+                key={marker.title}
+                marker={marker}
+                isClicked={marker.title === this.props.selectedMarker}
+                onMarkerClick={this.props.onMarkerClick(marker.title)}
               />
             )
           )

@@ -5,35 +5,31 @@ import { fetchRecommendedLocations } from '../forsquareAPI'
 
 class MyMarker extends Component {
   state = {
-    isOpen: false,
     recommendations: []
   }
 
-  handelMarkerClick = () => {
-    this.setState({isOpen: !this.state.isOpen})
-  }
-
   componentDidUpdate() {
-    const { isOpen, recommendations } = this.state
-    if (isOpen && recommendations.length === 0) {
+    const { recommendations } = this.state
+    if (this.props.isClicked && recommendations.length === 0) {
       const markerLocation = this.props.marker.location
       fetchRecommendedLocations(
         markerLocation.lat,
         markerLocation.lng,
-        (recommendations) => this.setState({ recommendations })
+        (recommendations) => this.setState({recommendations })
       )
     }
   }
 
   render() {
-    const { isOpen, recommendations } = this.state
+    const { recommendations } = this.state
+    const { isClicked, onMarkerClick } = this.props
     const marker = this.props.marker
     return (
       <Marker
         position={marker.location}
-        onClick={this.handelMarkerClick}
+        onClick={onMarkerClick}
       > 
-        {isOpen && recommendations.length > 0 ? (
+        {isClicked && recommendations.length > 0 ? (
               <InfoWindow>
                 <div>
                   <p>{marker.title}</p>
@@ -45,7 +41,7 @@ class MyMarker extends Component {
                         }
                       ).map(
                         location => (
-                          <li>{location.venue.name}</li>
+                          <li key={location.venue.id}>{location.venue.name}</li>
                         )
                       )
                     }
