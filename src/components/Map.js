@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps'
 import MyMarker from './MyMarker'
 
-
 class Map extends Component {
   render() {
     return (
@@ -18,6 +17,7 @@ class Map extends Component {
                 marker={marker}
                 isClicked={marker.title === this.props.selectedMarker}
                 onMarkerClick={this.props.onMarkerClick(marker.title)}
+                deselectMarker={this.props.deselectMarker}
               />
             )
           )

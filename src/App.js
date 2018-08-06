@@ -33,6 +33,10 @@ class App extends Component {
       this.setState({ selectedMarker: locationName })
   }
 
+  deselectMarker = () => {
+    this.setState({ selectedMarker: ''})
+  }
+
   render() {
 
     const { query } = this.state
@@ -47,7 +51,6 @@ class App extends Component {
 
     return (
       <div className="app">
-
         <header className="App-header">
           <div className="hamburger">
           <FontAwesomeIcon icon="bars" />
@@ -89,6 +92,7 @@ class App extends Component {
           mapElement={<div style={{ height: `100%` }} />}
           markers={showingLocations}
           selectedMarker={this.state.selectedMarker}
+          deselectMarker={this.deselectMarker}
           onMarkerClick={this.selectMarker}
         />
       </div>

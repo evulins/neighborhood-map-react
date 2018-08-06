@@ -20,6 +20,6 @@ export const fetchRecommendedLocations = (lat, lng, callback) => {
     return body.response.groups[0].items
   })
   .catch(function (err) {
-    console.error(err);
+    return []
   })
 }
