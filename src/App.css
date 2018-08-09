@@ -1,3 +1,4 @@
+/* CSS Document */
 html, body {
   width: 100%;
   height: 100%;
@@ -17,7 +18,7 @@ html, body {
   text-align: center;
 }
 
-
+/* ====================== Header ====================== */
 .App-header {
   display: flex;
   background-color: #222;
@@ -35,7 +36,7 @@ button:focus {
 }
 
 .hamburger {
-  background-color: #222;
+  background-color: #FFF0;
   display: flex;
   width: 10%;
   font-size: 1.5rem;
@@ -51,8 +52,8 @@ button:focus {
   width: 10%;
   font-size: 1.5rem;
   cursor: pointer;
-  -webkit-transform: translate(17rem, 0);
-  transform: translate(17rem, 0);
+  -webkit-transform: translate(250px, 0);
+  transform: translate(250px, 0);
   border: none;
 }
 
@@ -60,6 +61,13 @@ button:focus {
   width: 90%;
   font-size: 1.5rem;
 }
+
+.App-title.open {
+  width: 90%;
+  font-size: 1.5rem;
+}
+
+/* ====================== Locations List ====================== */
 
 .location-menu {
   z-index: 10;
@@ -118,6 +126,8 @@ button:focus {
   transform: translateY(4px);
 }
 
+/* ====================== Map ====================== */
+
 .map {
   width: 100%;
   height: 100%;
@@ -143,3 +153,80 @@ button:focus {
   padding: 0;
 }
 
+/* ====================== Breakpoints ====================== */
+
+@media all and (max-width: 450px) {
+
+/* Header */
+
+
+  .App-title {
+    transition: transform 0.3s ease;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  .App-title.open {
+    width: 90%;
+    font-size: 1.5rem;
+    -webkit-transform: translate(350px, 0);
+    transform: translate(350px, 0);
+    border: none;
+  }
+
+ .hamburger.open {
+  -webkit-transform: translate(250px, 0);
+  transform: translate(250px, 0);
+ }
+
+/* Locations List */
+
+
+  .location-menu.open {
+    width: 60%;
+  }
+
+  .location-name,
+  .location-name.open {
+    font-size: 1.2rem;
+  }
+
+}
+
+
+@media all and (min-width: 451px max-width: 680px) {
+
+  .App-title {
+      transition: transform 0.3s ease;
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+  }
+
+  .App-title.open {
+    width: 90%;
+    font-size: 1.5rem;
+    -webkit-transform: translate(350px, 0);
+    transform: translate(350px, 0);
+    border: none;
+  }
+
+  .location-menu.open {
+    width: 60%;
+  }
+
+  .hamburger.open {
+    -webkit-transform: translate(200px, 0);
+    transform: translate(200px, 0);
+  } 
+}
+
+@media all and (min-width: 680px max-width: 850px) {
+  .location-menu.open {
+    width: 30%;
+  }
+
+  .hamburger.open {
+    -webkit-transform: translate(150px, 0);
+    transform: translate(150px, 0);
+  } 
+}

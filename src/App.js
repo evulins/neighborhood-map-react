@@ -50,6 +50,20 @@ class App extends Component {
     }
   }
 
+  changeClasses = () => {
+    if (this.state.isNavBarOpen) {
+      return 'App-title open'
+    } else {
+      return 'App-title'
+    }
+  }
+
+  closeNavBar =() => {
+    if (this.selectMarker) {
+      this.toggleNavBar()
+    }
+  }
+
   render() {
 
     const { query } = this.state
@@ -68,7 +82,7 @@ class App extends Component {
             <button tabIndex="0" aria-label="menu-button" className={this.classes()} onClick={this.toggleNavBar}>
               <FontAwesomeIcon icon="bars" />
             </button>
-            <div className="App-title">
+            <div className={this.changeClasses()}>
             Discover Cracow
             </div>
           </header>
@@ -90,6 +104,7 @@ class App extends Component {
             selectMarker={this.selectMarker}
             deselectMarker={this.deselectMarker}
             isOpen={this.state.isNavBarOpen}
+            onLocationClick={this.closeNavBar}
           />
       </div>
     )

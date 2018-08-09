@@ -5,11 +5,12 @@ class NavBar extends Component {
 
   classes = () => {
     if (this.props.isOpen) {
-      return ('location-menu open')
+      return 'location-menu open'
     } else {
       return 'location-menu'
     }
   }
+
   render() {
 
     return (
@@ -34,7 +35,8 @@ class NavBar extends Component {
                     key={marker.title}
                     onClick={this.props.selectMarker(marker.title)}
                     markerTitle={marker.title}
-                    isClicked={marker.title === this.props.selectedMarker} 
+                    isClicked={marker.title === this.props.selectedMarker}
+                    closeNavBar={this.props.closeNavBar}
                   />
                 )
               )
