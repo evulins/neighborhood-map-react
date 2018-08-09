@@ -6,18 +6,18 @@ import './App.css'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import LocationName from './components/LocationName'
+import NavBar from './components/NavBar'
 
 library.add(
   faBars
 )
 
-
 class App extends Component {
   state = {
     markers: markerList,
     query: '',
-    selectedMarker: ''
+    selectedMarker: '',
+    isNavBarOpen: false
   }
 
   updateQuery = (query) => {
@@ -37,6 +37,19 @@ class App extends Component {
     this.setState({ selectedMarker: ''})
   }
 
+
+  toggleNavBar = () => {
+    this.setState({ isNavBarOpen: !this.state.isNavBarOpen})
+  }
+
+  classes = () => {
+    if (this.state.isNavBarOpen) {
+      return 'hamburger open'
+    } else {
+      return 'hamburger'
+    }
+  }
+
   render() {
 
     const { query } = this.state
@@ -50,51 +63,34 @@ class App extends Component {
       }
 
     return (
-      <div className="app">
-        <header className="App-header">
-          <div className="hamburger">
-          <FontAwesomeIcon icon="bars" />
-          </div>
-          <div className="App-title">
-          Moja mapa
-          </div>
-        </header>
-        <div className="location-menu">
-          <div className="menu-title">
-            Ewu Location
-          </div>
-          <input 
-            className="location-filter"
-            type="text"
-            placeholder="Interesting location"
-            value={query}
-            onChange={(event) => this.updateQuery(event.target.value)}
+      <div className="app" role="main">
+          <header className="App-header">
+            <button tabIndex="0" aria-label="menu-button" className={this.classes()} onClick={this.toggleNavBar}>
+              <FontAwesomeIcon icon="bars" />
+            </button>
+            <div className="App-title">
+            Discover Cracow
+            </div>
+          </header>
+          <Map
+            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcUxfP4uH5KBQC_to7jn1pHm2dT_Y1gQU&v=3.exp&libraries=geometry,drawing,places"
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div className="map" />}
+            mapElement={<div style={{ height: `100%` }} />}
+            markers={showingLocations}
+            selectedMarker={this.state.selectedMarker}
+            deselectMarker={this.deselectMarker}
+            onMarkerClick={this.selectMarker}
           />
-          <ul className="location-list">
-            {
-              showingLocations.map(
-                marker => (
-                  <LocationName
-                    key={marker.title}
-                    onClick={this.selectMarker(marker.title)}
-                    markerTitle={marker.title}
-                    isClicked={marker.title === this.state.selectedMarker} 
-                  />
-                )
-              )
-            }
-          </ul>
-        </div>
-        <Map
-          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcUxfP4uH5KBQC_to7jn1pHm2dT_Y1gQU&v=3.exp&libraries=geometry,drawing,places"
-          loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<div className="map" />}
-          mapElement={<div style={{ height: `100%` }} />}
-          markers={showingLocations}
-          selectedMarker={this.state.selectedMarker}
-          deselectMarker={this.deselectMarker}
-          onMarkerClick={this.selectMarker}
-        />
+        <NavBar
+            markers={showingLocations}
+            query={this.state.query}
+            updateQuery={this.updateQuery}
+            selectedMarker={this.state.selectedMarker}
+            selectMarker={this.selectMarker}
+            deselectMarker={this.deselectMarker}
+            isOpen={this.state.isNavBarOpen}
+          />
       </div>
     )
   }

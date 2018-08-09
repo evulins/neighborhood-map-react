@@ -32,8 +32,10 @@ class MyMarker extends Component {
         {isClicked && recommendations.length > 0 ? (
               <InfoWindow onCloseClick={deselectMarker}>
                 <div>
-                  <p>{marker.title}</p>
-                  <ul>
+                  <p className='marker-title'><a ole="link" href={marker.website}>{marker.title}</a></p>
+                  <p>{marker.address}</p>
+                  <p className='recommendations-title'>Recommended loctions nearby:</p>
+                  <ul className='recommendations-list'>
                     {
                       recommendations.filter(
                         location => {

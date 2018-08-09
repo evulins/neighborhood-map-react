@@ -5,7 +5,8 @@ export const markerList = [
       lng: 19.9601958
     },
     title: 'Plaża nad Wisłą',
-    address: 'Bulwar Kurlandzki, 33-332 Kraków, Polska'
+    address: 'Bulwar Kurlandzki, 33-332 Kraków, Polska',
+    website: 'https://www.facebook.com/piekarnia.zaczyn/'
   },
 
   {
@@ -14,7 +15,8 @@ export const markerList = [
       lng: 19.9489939
     },
     title: 'Good Lood',
-    address: 'Nadwiślańska 11/334, 30-527 Kraków, Polska'
+    address: 'Nadwiślańska 11/334, 30-527 Kraków, Polska',
+    website:'https://goodlood.com/'
   },
 
   {
@@ -23,7 +25,8 @@ export const markerList = [
       lng: 19.933355
     },
     title: 'Kino Pod Baranami',
-    address: 'Rynek Główny 27, 30-001 Kraków, Polska'
+    address: 'Rynek Główny 27, 30-001 Kraków, Polska',
+    website: 'http://www.kinopodbaranami.pl/'
   },
 
   {
@@ -32,7 +35,8 @@ export const markerList = [
       lng: 19.9554067
     },
     title: 'Mazaya Falafel',
-    address: 'Grzegórzecka 40, 30-001 Kraków, Polska'
+    address: 'Grzegórzecka 40, 30-001 Kraków, Polska',
+    website: 'https://www.facebook.com/falafelmazaya/'
   },
 
   {
@@ -41,7 +45,8 @@ export const markerList = [
       lng: 19.9474994
     },
     title: 'Dobry Rok',
-    address: 'Dajwór 20, 33-332 Kraków, Polska'
+    address: 'Dajwór 20, 33-332 Kraków, Polska',
+    website: 'https://www.facebook.com/winadobryrok/'
   },
 
   {
@@ -50,6 +55,7 @@ export const markerList = [
       lng: 19.9263073
     },
     title: 'Piekarnia Zaczyn',
-    address: 'Barska 4, 30-307 Kraków, Polska'
+    address: 'Barska 4, 30-307 Kraków, Polska',
+    website: 'https://www.facebook.com/piekarnia.zaczyn/'
   }
 ]

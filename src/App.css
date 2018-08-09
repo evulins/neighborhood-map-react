@@ -1,13 +1,19 @@
 html, body {
+  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+
 .app {
   display: flex;
   width: 100%;
-  flex-flow: row wrap;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -16,34 +22,68 @@ html, body {
   display: flex;
   background-color: #222;
   width: 100%;
-  height: 2rem;
-  padding: 1rem;
+  height: 4rem;
+  padding: 2rem;
   color: white;
-  order: 1;
   align-items: center;
+  justify-content: center;
+}
+
+
+button:focus {
+  outline:0;
 }
 
 .hamburger {
-  width: 20%;
+  background-color: #222;
+  display: flex;
+  width: 10%;
   font-size: 1.5rem;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border: none;
+  color: white;
+}
+
+.hamburger.open {
+  width: 10%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  -webkit-transform: translate(17rem, 0);
+  transform: translate(17rem, 0);
+  border: none;
 }
 
 .App-title {
+  width: 90%;
   font-size: 1.5rem;
-  width: 80%;
 }
 
 .location-menu {
-  flex-grow: 1;
-  flex-wrap: wrap;
-  position: relative;
-  order: 2;
+  z-index: 10;
+  background-color: black;
+  height: 100%;
+  width: 300px;
+  position: absolute;
+  -webkit-transform: translate(-300px, 0);
+  transform: translate(-300px, 0);
+  transition: transform 0.3s ease;
+}
+
+.location-menu.open {
   width: 20%;
+  height: 100%;
+  position: absolute;
+  flex-wrap: wrap;
   height: 100%;
   background-color: black;
   color: white;
   align-items: center;
   justify-content: center;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 
 .menu-title {
@@ -70,6 +110,7 @@ html, body {
 
 .location-name {
   padding: 1rem;
+  cursor: pointer;
 }
 
 .location-name.active {
@@ -78,9 +119,27 @@ html, body {
 }
 
 .map {
-  order: 2;
-  width: 80%;
+  width: 100%;
   height: 100%;
+  align-self: flex-start;
 }
 
+.gm-style .gm-style-iw {
+  background-color: #e6ffe6;
+}
+
+.marker-title {
+  font-weight: 900;
+  font-size: 1rem;
+  color: #083400FF;
+}
+
+.recommendations-title {
+  font-weight: 900;
+}
+
+.recommendations-list {
+  list-style: none;
+  padding: 0;
+}
 
