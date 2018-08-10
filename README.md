@@ -4,7 +4,7 @@
 
 ## Specification
 For the project I used:
-* React
+* React and react-google-maps
 * Google Maps API
 * Forsquare API
 * Flexbox

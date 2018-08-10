@@ -109,7 +109,6 @@ button:focus {
   margin: 0.5rem;
 }
 
-
 .location-list {
   list-style: none;
   font-size: 1rem;
@@ -135,13 +134,18 @@ button:focus {
 }
 
 .gm-style .gm-style-iw {
-  background-color: #e6ffe6;
+  background-color: #3e8e41;
+  color: white;
+  border-radius: 1rem;
 }
 
 .marker-title {
   font-weight: 900;
   font-size: 1rem;
-  color: #083400FF;
+}
+
+a {
+  color: white; 
 }
 
 .recommendations-title {
@@ -197,7 +201,6 @@ button:focus {
 
 }
 
-
 @media all and (min-width: 415px) and (max-width: 550px) {
 
 /* Header */
@@ -221,7 +224,6 @@ button:focus {
  }
 
 /* Locations List */
-
 
   .location-menu.open {
     width: 60%;
@@ -293,7 +295,7 @@ button:focus {
 @media all and (min-width: 800px) {
 
   .hamburger.open {
-    -webkit-transform: translate(250px, 0);
-    transform: translate(250px, 0);
+    -webkit-transform: translate(280px, 0);
+    transform: translate(280px, 0);
   }
 }
