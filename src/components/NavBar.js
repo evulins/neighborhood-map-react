@@ -27,7 +27,7 @@ class NavBar extends Component {
             value={this.props.query}
             onChange={(event) => this.props.updateQuery(event.target.value)}
           />
-          <ul className="location-list">
+          <ul className="location-list" aria-label="list of locations" tabIndex="1">
             {
               this.props.markers.map(
                 marker => (

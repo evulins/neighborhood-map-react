@@ -27,7 +27,7 @@ html, body {
   padding: 2rem;
   color: white;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 
@@ -153,9 +153,13 @@ button:focus {
   padding: 0;
 }
 
+.info {
+  font-size: 0.5rem;
+}
+
 /* ====================== Breakpoints ====================== */
 
-@media all and (max-width: 450px) {
+@media all and (max-width: 415px) {
 
 /* Header */
 
@@ -169,14 +173,14 @@ button:focus {
   .App-title.open {
     width: 90%;
     font-size: 1.5rem;
-    -webkit-transform: translate(350px, 0);
-    transform: translate(350px, 0);
+    -webkit-transform: translate(250px, 0);
+    transform: translate(250px, 0);
     border: none;
   }
 
  .hamburger.open {
-  -webkit-transform: translate(250px, 0);
-  transform: translate(250px, 0);
+  -webkit-transform: translate(230px, 0);
+  transform: translate(230px, 0);
  }
 
 /* Locations List */
@@ -194,39 +198,102 @@ button:focus {
 }
 
 
-@media all and (min-width: 451px max-width: 680px) {
+@media all and (min-width: 415px) and (max-width: 550px) {
 
+/* Header */
   .App-title {
-      transition: transform 0.3s ease;
-      -webkit-transform: translate(0, 0);
-      transform: translate(0, 0);
+    transition: transform 0.3s ease;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
   }
 
   .App-title.open {
     width: 90%;
     font-size: 1.5rem;
-    -webkit-transform: translate(350px, 0);
-    transform: translate(350px, 0);
+    -webkit-transform: translate(300px, 0);
+    transform: translate(300px, 0);
     border: none;
   }
+
+ .hamburger.open {
+  -webkit-transform: translate(300px, 0);
+  transform: translate(300px 0);
+ }
+
+/* Locations List */
+
 
   .location-menu.open {
     width: 60%;
   }
 
-  .hamburger.open {
-    -webkit-transform: translate(200px, 0);
-    transform: translate(200px, 0);
-  } 
-}
-
-@media all and (min-width: 680px max-width: 850px) {
-  .location-menu.open {
-    width: 30%;
+  .location-name,
+  .location-name.open {
+    font-size: 1.2rem;
   }
 
+}
+
+@media all and (min-width: 550px) and (max-width: 712px) {
+/* Header */
+  .App-title {
+    transition: transform 0.3s ease;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  .App-title.open {
+    width: 90%;
+    font-size: 1.5rem;
+    -webkit-transform: translate(250px, 0);
+    transform: translate(250px, 0);
+    border: none;
+  }
   .hamburger.open {
-    -webkit-transform: translate(150px, 0);
-    transform: translate(150px, 0);
+    -webkit-transform: translate(250px, 0);
+    transform: translate(250px, 0);
   } 
+
+  .location-name,
+  .location-name.open {
+    font-size: 1.2rem;
+  }
+
+  .location-menu.open {
+    width: 40%;
+  }
+}
+
+
+@media all and (min-width: 712px) and (max-width: 800px){
+.App-title {
+    transition: transform 0.3s ease;
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  .App-title.open {
+    width: 90%;
+    font-size: 1.5rem;
+    -webkit-transform: translate(300px, 0);
+    transform: translate(300px, 0);
+    border: none;
+  }
+  
+  .hamburger.open {
+    -webkit-transform: translate(350px, 0);
+    transform: translate(350px, 0);
+  }
+
+    .location-menu.open {
+    width: 30%;
+  }
+}
+
+@media all and (min-width: 800px) {
+
+  .hamburger.open {
+    -webkit-transform: translate(250px, 0);
+    transform: translate(250px, 0);
+  }
 }

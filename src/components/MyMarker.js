@@ -34,8 +34,8 @@ class MyMarker extends Component {
                 <div>
                   <p className='marker-title'><a ole="link" href={marker.website}>{marker.title}</a></p>
                   <p>{marker.address}</p>
-                  <p className='recommendations-title'>Recommended loctions nearby:</p>
-                  <ul className='recommendations-list'>
+                  <p className='recommendations-title'>Recommended loctions nearby :</p>
+                  <ul className='recommendations-list' aria-label="list of recommended locations">
                     {
                       recommendations.filter(
                         location => {
@@ -48,6 +48,7 @@ class MyMarker extends Component {
                       )
                     }
                   </ul>
+                  <p className='info'>Recommended loctions are taken from Forsquare</p>
 
                 </div>
               </InfoWindow>

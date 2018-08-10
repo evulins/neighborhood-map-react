@@ -17,7 +17,7 @@ class App extends Component {
     markers: markerList,
     query: '',
     selectedMarker: '',
-    isNavBarOpen: false
+    isNavBarOpen: true
   }
 
   updateQuery = (query) => {
@@ -104,7 +104,7 @@ class App extends Component {
             selectMarker={this.selectMarker}
             deselectMarker={this.deselectMarker}
             isOpen={this.state.isNavBarOpen}
-            onLocationClick={this.closeNavBar}
+            closeNavBar={this.closeNavBar}
           />
       </div>
     )
