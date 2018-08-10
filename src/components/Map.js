@@ -1,8 +1,17 @@
 import React, { Component } from 'react'
 import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps'
 import MyMarker from './MyMarker'
+import PropTypes from 'prop-types'
 
 class Map extends Component {
+
+  static propTypes = {
+    markers: PropTypes.array.isRequired,
+    onMarkerClick: PropTypes.func.isRequired,
+    deselectMarker: PropTypes.func.isRequired,
+    selectedMarker: PropTypes.string.isRequired
+  }
+
   render() {
     return (
       <GoogleMap

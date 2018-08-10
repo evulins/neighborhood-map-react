@@ -1,7 +1,17 @@
 import React, { Component } from 'react'
 import LocationName from './LocationName'
+import PropTypes from 'prop-types'
 
 class NavBar extends Component {
+
+  static propTypes = {
+    query: PropTypes.string.isRequired,
+    updateQuery: PropTypes.func.isRequired,
+    selectMarker: PropTypes.func.isRequired,
+    markers: PropTypes.array.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+    selectedMarker: PropTypes.string.isRequired
+  }
 
   classes = () => {
     if (this.props.isOpen) {
@@ -36,7 +46,6 @@ class NavBar extends Component {
                     onClick={this.props.selectMarker(marker.title)}
                     markerTitle={marker.title}
                     isClicked={marker.title === this.props.selectedMarker}
-                    closeNavBar={this.props.closeNavBar}
                   />
                 )
               )

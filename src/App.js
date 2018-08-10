@@ -58,12 +58,6 @@ class App extends Component {
     }
   }
 
-  closeNavBar =() => {
-    if (this.selectMarker) {
-      this.toggleNavBar()
-    }
-  }
-
   render() {
 
     const { query } = this.state
@@ -104,7 +98,6 @@ class App extends Component {
             selectMarker={this.selectMarker}
             deselectMarker={this.deselectMarker}
             isOpen={this.state.isNavBarOpen}
-            closeNavBar={this.closeNavBar}
           />
       </div>
     )
