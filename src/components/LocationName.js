@@ -6,7 +6,8 @@ class LocationName extends Component {
   static propTypes = {
     isClicked: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,
-    markerTitle: PropTypes.string.isRequired
+    markerTitle: PropTypes.string.isRequired,
+    tabIndex: PropTypes.number.isRequired
   }
 
 
@@ -22,7 +23,7 @@ class LocationName extends Component {
   render() {
     
     return (
-      <li className={this.classes()} onClick={this.props.onClick}>
+      <li tabIndex={this.props.tabIndex} role='button' className={this.classes()} onClick={this.props.onClick}>
         <div>
           {this.props.markerTitle}
         </div>

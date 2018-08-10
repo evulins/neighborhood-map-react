@@ -40,12 +40,13 @@ class NavBar extends Component {
           <ul className="location-list" aria-label="list of locations" tabIndex="1">
             {
               this.props.markers.map(
-                marker => (
+                (marker, index) => (
                   <LocationName
                     key={marker.title}
                     onClick={this.props.selectMarker(marker.title)}
                     markerTitle={marker.title}
                     isClicked={marker.title === this.props.selectedMarker}
+                    tabIndex={index}
                   />
                 )
               )

@@ -41,7 +41,7 @@ class MyMarker extends Component {
         {isClicked && recommendations.length > 0 ? (
               <InfoWindow onCloseClick={deselectMarker}>
                 <div>
-                  <p className='marker-title'><a target='_blank' href={marker.website}>{marker.title}</a></p>
+                  <p className='marker-title'><a target='_blank' rel='noreferrer noopener' href={marker.website}>{marker.title}</a></p>
                   <p>{marker.address}</p>
                   <p className='recommendations-title'>Recommended loctions nearby :</p>
                   <ul className='recommendations-list' aria-label="list of recommended locations">
@@ -51,8 +51,8 @@ class MyMarker extends Component {
                           return location.venue.name !== marker.title
                         }
                       ).map(
-                        location => (
-                          <li key={location.venue.id}>{location.venue.name}</li>
+                        (location, index) => (
+                          <li tabIndex={index} key={location.venue.id}>{location.venue.name}</li>
                         )
                       )
                     }
