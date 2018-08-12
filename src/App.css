@@ -133,6 +133,23 @@ button:focus {
   align-self: flex-start;
 }
 
+.error-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 15rem;
+}
+
+.error-info {
+  width: 100%;
+  font-size: 2rem;
+  color: #3e8e41;
+
+}
+
 .gm-style .gm-style-iw {
   background-color: #3e8e41;
   color: white;
@@ -182,10 +199,10 @@ a {
     border: none;
   }
 
- .hamburger.open {
-  -webkit-transform: translate(230px, 0);
-  transform: translate(230px, 0);
- }
+  .hamburger.open {
+    -webkit-transform: translate(230px, 0);
+    transform: translate(230px, 0);
+  }
 
 /* Locations List */
 
@@ -197,6 +214,14 @@ a {
   .location-name,
   .location-name.open {
     font-size: 1.2rem;
+  }
+
+  .error-container {
+    padding-left: 0rem;
+    width: 50%;
+  }
+  .error-info {
+    font-size: 1rem;
   }
 
 }
@@ -287,7 +312,7 @@ a {
     transform: translate(350px, 0);
   }
 
-    .location-menu.open {
+  .location-menu.open {
     width: 30%;
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { GoogleMap, withGoogleMap, withScriptjs } from 'react-google-maps'
+import { GoogleMap, withGoogleMap } from 'react-google-maps'
 import MyMarker from './MyMarker'
 import PropTypes from 'prop-types'
 
@@ -37,4 +37,4 @@ class Map extends Component {
   }
 }
  
-export default withScriptjs(withGoogleMap(Map))
+export default withGoogleMap(Map)

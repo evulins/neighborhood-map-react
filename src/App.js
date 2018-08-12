@@ -7,6 +7,7 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import NavBar from './components/NavBar'
+import MapError from './components/MapError'
 
 library.add(
   faBars
@@ -59,7 +60,7 @@ class App extends Component {
   }
 
   render() {
-
+    const isMapLoaded = window.google && window.google.maps
     const { query } = this.state
     let showingLocations
     const markers = this.state.markers
@@ -69,6 +70,8 @@ class App extends Component {
     } else {
         showingLocations = markers
       }
+
+      console.log(isMapLoaded)
 
     return (
       <div className="app" role="main">
@@ -80,16 +83,18 @@ class App extends Component {
             Discover Cracow
             </div>
           </header>
-          <Map
-            googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcUxfP4uH5KBQC_to7jn1pHm2dT_Y1gQU&v=3.exp&libraries=geometry,drawing,places"
-            loadingElement={<div style={{ height: `100%` }} />}
-            containerElement={<div className="map" />}
-            mapElement={<div style={{ height: `100%` }} />}
-            markers={showingLocations}
-            selectedMarker={this.state.selectedMarker}
-            deselectMarker={this.deselectMarker}
-            onMarkerClick={this.selectMarker}
-          />
+          {isMapLoaded && <Map
+              loadingElement={<div className="loadingElement" style={{ height: `100%` }} />}
+              containerElement={<div className="map" />}
+              mapElement={<div style={{ height: `100%` }} />}
+              markers={showingLocations}
+              selectedMarker={this.state.selectedMarker}
+              deselectMarker={this.deselectMarker}
+              onMarkerClick={this.selectMarker}
+            />
+          }
+          {!isMapLoaded && <MapError />}
+
         <NavBar
             markers={showingLocations}
             query={this.state.query}
