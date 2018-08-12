@@ -13,6 +13,7 @@ class NavBar extends Component {
     selectedMarker: PropTypes.string.isRequired
   }
 
+// When the state of NavBar is changing then also changes the classes of NavBar
   classes = () => {
     if (this.props.isOpen) {
       return 'location-menu open'
@@ -21,6 +22,7 @@ class NavBar extends Component {
     }
   }
 
+//Creates NavBar with filter input and clickable locations list.
   render() {
 
     return (

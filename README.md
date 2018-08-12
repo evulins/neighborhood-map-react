@@ -9,7 +9,7 @@ For the project I used:
 * Forsquare API
 * Flexbox
 
-## How to run MyReads App
+## How to run Neighborhood Map in development mode
 
 1. Make sure you have Git and Node installed on your local machine.
 2. Download or clone the repository.
@@ -17,6 +17,13 @@ For the project I used:
 4. Start the development server with `npm start`
 5. With your server running, open your browser and visit the site:
 [`http://localhost:3000/`](http://localhost:3000/)
+
+## How to run Neighborhood Map in production mode
+
+1. In a terminal install all project dependencies with `npm build`.
+2. In a terminal, check the version of Python you have: `python -V`. If you don't have Python installed, navigate to Python's [website](https://www.python.org/) to download and install the software.
+3. If you have Python navigate to the build directory and start a localhost with python `python -m S impleHTTPServer 8000`. 
+4. Open your browser and visit the site: [`http://localhost:8000`](http://localhost:8000)
 
 ## Create React App
 

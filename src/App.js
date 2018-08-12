@@ -21,28 +21,29 @@ class App extends Component {
     isNavBarOpen: true
   }
 
+
+// Updates the query state
   updateQuery = (query) => {
     this.setState({ query: query.trim() })
   }
 
-  clearQuery = () => {
-    this.setState({ query: ''})
-  }
-
+// Selects clicked Marker and corresponding location name in NavBar
   selectMarker = locationName => {
     return () =>
       this.setState({ selectedMarker: locationName })
   }
 
+// Deselects clicked Marker and corresponding location name in NavBar
   deselectMarker = () => {
     this.setState({ selectedMarker: ''})
   }
 
-
+// Hides and opens NaviBar
   toggleNavBar = () => {
     this.setState({ isNavBarOpen: !this.state.isNavBarOpen})
   }
 
+// When the state of NavBar is changing then also changes the classes of hamburger button
   classes = () => {
     if (this.state.isNavBarOpen) {
       return 'hamburger open'
@@ -51,6 +52,7 @@ class App extends Component {
     }
   }
 
+// When the state of NavBar is changing then also changes the classes of App title
   changeClasses = () => {
     if (this.state.isNavBarOpen) {
       return 'App-title open'
@@ -64,15 +66,14 @@ class App extends Component {
     const { query } = this.state
     let showingLocations
     const markers = this.state.markers
+
+//Shows all locations and markers which has given word
     if (query) {
       const match = new RegExp(escapeRegExp(query), 'i')
       showingLocations = markers.filter((marker) => match.test(marker.title))
     } else {
         showingLocations = markers
       }
-
-      console.log(isMapLoaded)
-
     return (
       <div className="app" role="main">
           <header className="App-header">
@@ -83,6 +84,11 @@ class App extends Component {
             Discover Cracow
             </div>
           </header>
+  {
+  /*If everything works fine and google API is loaded then maps appears in app.
+   If not error messages will be displayed
+  */
+  }
           {isMapLoaded && <Map
               loadingElement={<div className="loadingElement" style={{ height: `100%` }} />}
               containerElement={<div className="map" />}
@@ -94,7 +100,6 @@ class App extends Component {
             />
           }
           {!isMapLoaded && <MapError />}
-
         <NavBar
             markers={showingLocations}
             query={this.state.query}

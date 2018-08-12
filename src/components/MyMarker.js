@@ -37,6 +37,7 @@ class MyMarker extends Component {
     }
   }
 
+//Creates clickable Marker with InfoWindow and aniamtion connected with location from the NavBar.
   render() {
     const { recommendations } = this.state
     const { isClicked, onMarkerClick, deselectMarker } = this.props
@@ -47,6 +48,11 @@ class MyMarker extends Component {
         onClick={onMarkerClick}
         animation={isClicked && window.google.maps.Animation.BOUNCE}
       > 
+      {
+        /*When the marker is clicked, info window is displayed with FourSquare recommendations.
+         *If there is some problem with fetching FourSquare API, special error message will appear.
+        */
+      }
         {isClicked && <InfoWindow onCloseClick={deselectMarker}>
                 <div>
                   <p className='marker-title'><a target='_blank' rel='noreferrer noopener' href={marker.website}>{marker.title}</a></p>

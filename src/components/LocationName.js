@@ -10,7 +10,7 @@ class LocationName extends Component {
     tabIndex: PropTypes.number.isRequired
   }
 
-
+// When the marker is clicked then the classes of location from list is changed.
   classes = () => {
     if (this.props.isClicked) {
       return 'location-name active'
@@ -19,7 +19,6 @@ class LocationName extends Component {
     }
   }
 
-  
   render() {
     
     return (

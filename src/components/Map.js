@@ -12,6 +12,7 @@ class Map extends Component {
     selectedMarker: PropTypes.string.isRequired
   }
 
+//Creates map with markers.
   render() {
     return (
       <GoogleMap
