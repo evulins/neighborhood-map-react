@@ -1,6 +1,12 @@
 # Neighborhood Map Project
 
-**Neighborhood Map** is the final project for "Front-End Web Developer Nanodegree Program". This is a single page application featuring a map of my neighborhood. I added functionality to the map including highlighted locations, third-party data about those locations and various ways to browse the content.
+
+## Table of Contents
+- [Specification](#specification)
+- [How to run Neighborhood Map in development mode](#how-to-run-neighborhood-map-in-development-mode)
+
+
+**Neighborhood Map** is the final project for "Front-End Web Developer Nanodegree Program". This is a single page application featuring a map of my neighborhood. I added functionality to the map including highlighted locations, _third-party_ data about those locations and various ways to browse the content.
 
 ## Specification
 For the project I used:
